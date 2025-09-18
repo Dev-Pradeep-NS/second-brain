@@ -1,0 +1,322 @@
+.landing-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  // Hero Section
+  .hero {
+    text-align: center;
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+
+      @media (max-width: 768px) {
+        gap: 2rem;
+      }
+
+      .stat {
+        text-align: center;
+
+        .stat-number {
+          display: block;
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--secondary);
+          line-height: 1;
+        }
+
+        .stat-label {
+          color: var(--gray);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  // Quick Navigation
+  .quick-nav {
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .nav-card {
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      border-radius: 12px;
+      padding: 2rem;
+      text-decoration: none;
+      text-align: center;
+      color: var(--dark);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: var(--secondary);
+      }
+
+      .nav-card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      p {
+        margin: 0;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  // Recent Notes Section
+  .recent-notes-section {
+    margin-bottom: 4rem;
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      h2 {
+        font-size: 2rem;
+        margin: 0;
+        color: var(--dark);
+      }
+
+      .see-all {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--tertiary);
+        }
+      }
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .note-card {
+      background: var(--light);
+      border: 1px solid var(--lightgray);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-color: var(--secondary);
+      }
+
+      .note-title {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.25rem;
+
+        a {
+          color: var(--dark);
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--secondary);
+          }
+        }
+      }
+
+      .note-description {
+        color: var(--gray);
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .note-meta {
+        color: var(--gray);
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+
+      .note-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+
+        .tag-pill {
+          background: var(--highlight);
+          color: var(--secondary);
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+          text-decoration: none;
+          font-size: 0.8rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: var(--secondary);
+            color: var(--light);
+          }
+        }
+
+        .tag-more {
+          color: var(--gray);
+          font-size: 0.8rem;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  // Popular Tags
+  .popular-tags {
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .tag-cloud-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: var(--highlight);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: calc(1rem * var(--tag-size, 1));
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: var(--secondary);
+        color: var(--light);
+        transform: scale(1.05);
+      }
+
+      .tag-count {
+        opacity: 0.7;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  // Call to Action
+  .cta {
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--lightgray);
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--gray);
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Dark mode adjustments
+@media (prefers-color-scheme: dark) {
+  .landing-page {
+    .nav-card,
+    .note-card {
+      background: var(--dark);
+      border-color: var(--darkgray);
+
+      &:hover {
+        border-color: var(--secondary);
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use "../../styles/variables.scss" as *;
+
+.toc {
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible; // Changed from hidden to visible to allow scroll inside
+  min-height: 5rem; // Increased min-height for better initial size
+  flex: 1 1 auto; // Grow and shrink flexibly
+  max-height: 100vh; // Limit height to viewport height
+  background: var(--background-light);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:has(button.toc-header.collapsed) {
+    flex: 0 1 2rem;
+  }
+}
+
+button.toc-header {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--hover-light);
+  }
+
+  & h3 {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin: 0;
+    color: var(--primary);
+  }
+
+  & .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-size: cover;
+  }
+
+  &.collapsed .fold {
+    transform: rotateZ(-90deg);
+  }
+}
+
+ul.toc-content.overflow {
+  list-style: none;
+  position: relative;
+  margin: 0.2rem 0;
+  padding: 0;
+  overflow-y: auto; // Enable vertical scroll for full visibility
+  max-height: 100%; // Fill all available height from container
+  flex-grow: 1; // Grow to fill vertical space inside .toc
+
+  & > li > a {
+    color: var(--dark);
+    opacity: 0.7;
+    transition:
+      opacity 0.3s ease,
+      color 0.3s ease;
+    display: block;
+    padding: 0.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.8rem;
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--hover-light);
+    }
+
+    &.in-view {
+      opacity: 1;
+      color: var(--primary);
+      font-weight: 500;
+    }
+  }
+
+  @for $i from 0 through 6 {
+    & .depth-#{$i} {
+      padding-left: calc(1.2rem * #{$i});
+    }
+  }
+}
