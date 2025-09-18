@@ -113,8 +113,8 @@ if git status --porcelain | grep -q .; then
         # Step 6: Push to main branch (GitHub Actions will handle deployment)
         echo "Pushing to main branch..."
 
-        # Ensure SSH agent is running and key is loaded
-        if ! pgrep -x ssh-agent > /dev/null; then
+        # Start SSH agent if not running or not accessible
+        if ! ssh-add -l &>/dev/null; then
             echo "Starting SSH agent..."
             eval "$(ssh-agent -s)"
         fi
