@@ -122,10 +122,10 @@ if git status --porcelain | grep -q .; then
         # Check if our specific key is loaded
         if ! ssh-add -l 2>/dev/null | grep -q "id_personal"; then
             echo "Adding SSH key to agent..."
-            ssh-add ~/.ssh/id_personal 2>/dev/null || {
-                echo "⚠️  Could not add SSH key automatically."
-                echo "Please run: ssh-add ~/.ssh/id_personal"
-                echo "Then run this script again."
+            echo "Please enter your SSH key passphrase:"
+            ssh-add ~/.ssh/id_personal || {
+                echo "⚠️  Failed to add SSH key."
+                echo "Please check your passphrase and try again."
                 exit 1
             }
         fi
