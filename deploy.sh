@@ -113,8 +113,14 @@ if git status --porcelain | grep -q .; then
         # Step 6: Push to main branch (GitHub Actions will handle deployment)
         echo "Pushing to main branch..."
 
-        # Add SSH key to agent if not already added
-        if ! ssh-add -l &>/dev/null; then
+        # Ensure SSH agent is running and key is loaded
+        if ! pgrep -x ssh-agent > /dev/null; then
+            echo "Starting SSH agent..."
+            eval "$(ssh-agent -s)"
+        fi
+
+        # Check if our specific key is loaded
+        if ! ssh-add -l 2>/dev/null | grep -q "id_personal"; then
             echo "Adding SSH key to agent..."
             ssh-add ~/.ssh/id_personal 2>/dev/null || {
                 echo "⚠️  Could not add SSH key automatically."
