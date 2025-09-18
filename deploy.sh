@@ -130,7 +130,7 @@ if git status --porcelain | grep -q .; then
             }
         fi
 
-        git push origin main || {
+        git push origin master || {
             echo "❌ Failed to push to main branch."
             echo "Please check your SSH key and run: ssh-add ~/.ssh/id_personal"
             exit 1
