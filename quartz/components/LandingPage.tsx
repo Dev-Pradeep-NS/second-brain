@@ -86,11 +86,6 @@ export default ((userOpts?: Partial<Options>) => {
         <section class="recent-notes-section">
           <div class="section-header">
             <h2>Recent Notes</h2>
-            {Array.from(folders).map(folder => (
-              <a href={resolveRelative(fileData.slug!, folder as SimpleSlug)} class="see-all">
-                View All →
-              </a>
-            ))}
           </div>
           <div class="notes-grid">
             {recentNotes.map((page) => {
