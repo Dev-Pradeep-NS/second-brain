@@ -1,10 +1,11 @@
 ---
 title: Golang PocketBase Setup Notes
-date: 2024-11-06
+date: 2025-09-30
 draft: false
 tags:
-  - tag1
-  - tag2
+  - Golang
+  - Setup
+  - tech
 ---
 ## Prerequisites
 
